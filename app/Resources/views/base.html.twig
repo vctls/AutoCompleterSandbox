@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title 'PUGX Autocompleter sandbox' %}</title>
+        {% block stylesheets %}
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+            <link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.css" rel="stylesheet">
+			<link href="//cdn.rawgit.com/t0m/select2-bootstrap-css/bootstrap3/select2-bootstrap.css" rel="stylesheet">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    </head>
+    <body>
+        <div class="container">
+            {% for messageType in ['success', 'info', 'warning', 'danger'] %}
+                {% for flashMessage in app.session.flashbag.get(messageType) %}
+                    <div class="alert alert-{{ messageType }}">
+                        <button class="close" data-dismiss="alert" type="button">&times;</button>
+                        {{ flashMessage|trans }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% block body '' %}
+        </div>
+        {% block javascripts %}
+            <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js"></script>
+            <script src="{{ asset('bundles/pugxautocompleter/js/autocompleter-select2.js') }}"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

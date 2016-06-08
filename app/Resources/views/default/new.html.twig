@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Book - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>New Book</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">OK</button>
+    {{ form_end(form) }}
+    <a href="{{ path('search_author') }}" id="url-list" class="hidden"></a>
+    <a href="{{ path('get_author') }}" id ="url-get" class="hidden"></a>
+{% endblock %}
