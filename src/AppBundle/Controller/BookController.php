@@ -20,11 +20,28 @@ class BookController extends Controller
         $form = $this->createForm('AppBundle\Form\BookType', $book, ['method' => 'PUT']);
         if ($form->handleRequest($request)->isValid()) {
             $this->get('app.repository.book')->add($book);
-            $this->addFlash('notice', 'New book added.');
+            $this->addFlash('success', 'New book added.');
 
             return $this->redirectToRoute('homepage');
         }
 
-        return $this->render('default/new.html.twig', ['form' => $form->createView()]);
+        return $this->render('book/new.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/edit-book/{id}", name="edit_book")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Book $book, Request $request)
+    {
+        $form = $this->createForm('AppBundle\Form\BookType', $book);
+        if ($form->handleRequest($request)->isValid()) {
+            $this->get('app.repository.book')->add($book);
+            $this->addFlash('success', 'Book updated.');
+
+            return $this->redirectToRoute('homepage');
+        }
+
+        return $this->render('book/edit.html.twig', ['book' => $book, 'form' => $form->createView()]);
     }
 }

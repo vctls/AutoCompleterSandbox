@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Author;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -25,5 +26,17 @@ class AuthorRepository extends EntityRepository
             ->getQuery()
             ->execute()
         ;
+    }
+
+    /**
+     * @param Author $author
+     * @param bool   $flush
+     */
+    public function add(Author $author, $flush = true)
+    {
+        $this->getEntityManager()->persist($author);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
     }
 }

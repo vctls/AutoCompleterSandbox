@@ -19,4 +19,18 @@ class BookControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
         $this->assertTrue($client->getResponse()->isOk());
     }
+
+    public function testEdit()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $crawler = $client->click($crawler->selectLink('edit')->link());
+        $this->assertTrue($client->getResponse()->isOk());
+        $form = $crawler->selectButton('OK')->form([
+            'book[title]' => 'Changed title',
+        ]);
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+        $this->assertTrue($client->getResponse()->isOk());
+    }
 }

@@ -75,12 +75,4 @@ class Author
     {
         return $this->name;
     }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getBooks()
-    {
-        return $this->books;
-    }
 }

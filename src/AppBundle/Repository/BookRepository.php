@@ -11,6 +11,19 @@ use Doctrine\ORM\EntityRepository;
 class BookRepository extends EntityRepository
 {
     /**
+     * @return array
+     */
+    public function findAll()
+    {
+        return $this
+            ->createQueryBuilder('b')
+            ->orderBy('b.title')
+            ->getQuery()
+            ->execute()
+        ;
+    }
+
+    /**
      * @param Book $book
      * @param bool $flush
      */

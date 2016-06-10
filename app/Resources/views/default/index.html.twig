@@ -1,8 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1><span>Welcome to</span> PUGXAutocompleterBundle sadnbox</h1>
-    <div class="jumbotron">
-        <a class="btn btn-primary" href="{{ path('new_book') }}">Insert a new book</a>
-    </div>
+    <h1>PUGXAutocompleterBundle sadnbox</h1>
+    <table class="table table-striped table-hover">
+        <caption>Books</caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td><a href="{{ path('edit_book', {id: book.id}) }}" class="btn btn-default btn-sm">edit</a>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <a class="btn btn-primary" href="{{ path('new_book') }}">Insert a new book</a>
 {% endblock %}

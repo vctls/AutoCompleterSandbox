@@ -14,6 +14,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $books = $this->get('app.repository.book')->findAll();
+
+        return $this->render('default/index.html.twig', ['books' => $books]);
     }
 }
