@@ -29,20 +29,14 @@ $(document).ready(function () {
                 if (typeof res === 'object') {
                     // if it'a a JSON, form is valid
                     $modal.modal('hide');
-                    var $option = $('<option>').val(res.id).text(res.name);
-                    var $select = $('#' + prefix + '_' + res.type);
-                    $select.append($option);
-                    if ($select.attr('multiple')) {
-                        var oldVals = $select.val();
-                        if (oldVals) {
-                            oldVals.push(res.id);
-                        } else {
-                            oldVals = res.id;
+                    var $input = $('#' + prefix + '_' + res.type);
+                    $input.val(res.id).trigger('change');
+                    // this workaround is needed because we can't set a val() to a non-existant option
+                    $('.select2-chosen').each(function () {
+                        if ($(this).parents('div').attr('id').indexOf(prefix + '_' + res.type) > -1) {
+                            $(this).text(res.name);
                         }
-                        $select.val(oldVals).trigger('change');
-                    } else {
-                        $select.val(res.id).trigger('change');
-                    }
+                    });
                 } else {
                     // if is HTML, form is invalid (has errors)
                     $modal.modal('hide');
