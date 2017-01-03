@@ -18,7 +18,7 @@ class BookController extends Controller
     {
         $book = new Book();
         $form = $this->createForm('AppBundle\Form\BookType', $book, ['method' => 'PUT']);
-        if ($form->handleRequest($request)->isValid()) {
+        if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
             $this->get('app.repository.book')->add($book);
             $this->addFlash('success', 'New book added.');
 

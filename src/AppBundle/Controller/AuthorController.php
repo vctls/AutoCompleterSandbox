@@ -49,7 +49,7 @@ class AuthorController extends Controller
             // notice that we need to explicit 'action', otherwise modal form will not work
             'action' => $this->generateUrl('new_author'),
         ]);
-        if ($form->handleRequest($request)->isValid()) {
+        if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
             $this->get('app.repository.author')->add($author);
             if ($request->isXmlHttpRequest()) {
                 return $this->json(['id' => $author->getId(), 'name' => $author->getName(), 'type' => 'author']);

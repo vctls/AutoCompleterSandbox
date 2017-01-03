@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends app.request.get('jqui') ? 'base_jqui.html.twig' : 'base.html.twig' %}
 
 {% block title %}New Book - {{ parent() }}{% endblock %}
 
