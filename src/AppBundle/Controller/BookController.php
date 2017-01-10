@@ -35,7 +35,7 @@ class BookController extends Controller
     public function editAction(Book $book, Request $request)
     {
         $form = $this->createForm('AppBundle\Form\BookType', $book);
-        if ($form->handleRequest($request)->isValid()) {
+        if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
             $this->get('app.repository.book')->add($book);
             $this->addFlash('success', 'Book updated.');
 

@@ -16,7 +16,7 @@ class AuthorController extends Controller
      */
     public function searchAction(Request $request)
     {
-        $qs = $request->query->get('q');
+        $qs = $request->query->get('q', $request->query->get('term', ''));
         $authors = $this->get('app.repository.author')->findLike($qs);
 
         return $this->render('author/search.json.twig', ['authors' => $authors]);
