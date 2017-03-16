@@ -1,6 +1,6 @@
 {
     "name": "garak/autocompleter-sandbox",
-    "license": "LGTPL",
+    "license": "LGPL",
     "type": "project",
     "description": "A sandbox for PUGXAutocompleterBundle",
     "authors": [
