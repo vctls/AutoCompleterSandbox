@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-
 use AppBundle\Entity\Tag;
 use Doctrine\ORM\EntityRepository;
 
@@ -38,7 +37,7 @@ class TagRepository extends EntityRepository
     }
 
     /**
-     * @param Tag $tag
+     * @param Tag  $tag
      * @param bool $flush
      */
     public function add(Tag $tag, $flush = true)

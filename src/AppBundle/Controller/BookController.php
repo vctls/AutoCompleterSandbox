@@ -17,6 +17,7 @@ class BookController extends Controller
      * @Route("/new-book", name="new_book")
      * @Method({"GET", "PUT"})
      * @Template("book/new.html.twig")
+     *
      * @param Request $request
      *
      * @return RedirectResponse|array
@@ -40,7 +41,7 @@ class BookController extends Controller
      * @Method({"GET", "POST"})
      * @Template("book/edit.html.twig")
      *
-     * @param Book $book
+     * @param Book    $book
      * @param Request $request
      *
      * @return RedirectResponse|array

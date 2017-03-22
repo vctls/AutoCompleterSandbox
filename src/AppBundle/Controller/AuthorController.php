@@ -73,7 +73,7 @@ class AuthorController extends Controller
                 return $this->json([
                     'id' => $author->getId(),
                     'name' => $author->getName(),
-                    'type' => 'author'
+                    'type' => 'author',
                 ]);
             } else {
                 $this->addFlash('success', 'New author added.');

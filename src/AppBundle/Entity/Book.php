@@ -101,21 +101,25 @@ class Book
 
     /**
      * @param Tag $tag
+     *
      * @return Book $this
      */
     public function addTag(Tag $tag)
     {
         $this->tags->add($tag);
+
         return $this;
     }
 
     /**
      * @param Tag $tag
+     *
      * @return Book $this
      */
     public function removeTag(Tag $tag)
     {
         $this->tags->removeElement($tag);
+
         return $this;
     }
 }

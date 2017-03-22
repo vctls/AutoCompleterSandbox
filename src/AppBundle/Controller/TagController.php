@@ -73,7 +73,7 @@ class TagController extends Controller
                 return $this->json([
                     'id' => $tag->getId(),
                     'name' => $tag->getName(),
-                    'type' => 'tag'
+                    'type' => 'tag',
                 ]);
             } else {
                 $this->addFlash('success', 'New tag added.');

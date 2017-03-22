@@ -21,7 +21,7 @@ class BookType extends AbstractType
         $builder
             ->add('title')
             ->add('author', AutocompleteType::class, ['class' => Author::class])
-            ->add('tags', AutocompleteMultipleType::class, ['class' => Tag::class,]);
+            ->add('tags', AutocompleteMultipleType::class, ['class' => Tag::class]);
     }
 
     /**
