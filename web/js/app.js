@@ -1,7 +1,7 @@
 $(document).ready(function () {
     'use strict';
 
-    /* ajax modal (you need this onlu for the "add new" feature. See README) */
+    /* ajax modal (you need this only for the "add new" feature. See README) */
     $('body').on('click', 'a.ajax-modal', function (e) {
         e.preventDefault();
         var url = $(this).attr('href');
@@ -18,9 +18,11 @@ $(document).ready(function () {
             var method = $(this).attr('method');
             var data = $(this).serialize();
             var $modal = $(this).parents('.modal');
+
             $modal.on('hidden.bs.modal', function () {
                 $(this).data('bs.modal', null);
             });
+
             $.ajax({
                 url: url,
                 method: method,
@@ -53,16 +55,23 @@ $(document).ready(function () {
             url_get: $('#url-get').attr('href'),
             otherOptions: {
                 minimumInputLength: 1,
-                theme: 'boostrap',
+                theme: 'bootstrap',
                 formatNoMatches: 'No author found.',
                 formatSearching: 'Searching authors...',
                 formatInputTooShort: 'Insert at least 1 character'
             }
         };
+
         $('#book_author').autocompleter(options);
+
         // following lines are only for "add new" feature. See README.
         modalForm('book');
-        var $addNew = $('<a>').text('insert new').attr('class', 'btn btn-xs btn-success ajax-modal').attr('href', $('#url-new').attr('href'));
+        var $addNew = $('<a>')
+                .text('insert new')
+                .attr('class', 'btn btn-xs btn-success ajax-modal')
+                .attr('href', $('#url-new').attr('href'))
+            ;
         $('label[for="book_author"]').after($addNew).after(' ');
+
     }());
 });

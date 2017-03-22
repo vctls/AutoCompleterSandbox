@@ -1,14 +1,28 @@
 {% extends app.request.get('jqui') ? 'base_jqui.html.twig' : 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block title %}Edit Book - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Book <small>{{ book.id }}</small></h1>
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button type="submit" class="btn btn-primary">OK</button>
-    {{ form_end(form) }}
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>Edit Book {{ book.id }}</h1>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button type="submit" class="btn btn-primary">OK</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="{{ path('search_author') }}" id="url-list" class="hidden"></a>
-    <a href="{{ path('get_author') }}" id ="url-get" class="hidden"></a>
-    <a href="{{ path('new_author') }}" id ="url-new" class="hidden"></a>
+    <a href="{{ path('get_author') }}" id="url-get" class="hidden"></a>
+    <a href="{{ path('new_author') }}" id="url-new" class="hidden"></a>
+    <a href="{{ path('search_tag') }}" id="url-list-tag" class="hidden"></a>
+    <a href="{{ path('get_tag') }}" id="url-get-tag" class="hidden"></a>
+    <a href="{{ path('new_tag') }}" id="url-new-tag" class="hidden"></a>
 {% endblock %}

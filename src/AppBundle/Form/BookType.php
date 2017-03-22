@@ -2,6 +2,10 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Author;
+use AppBundle\Entity\Book;
+use AppBundle\Entity\Tag;
+use PUGX\AutocompleterBundle\Form\Type\AutocompleteMultipleType;
 use PUGX\AutocompleterBundle\Form\Type\AutocompleteType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +20,8 @@ class BookType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('author', AutocompleteType::class, ['class' => 'AppBundle:Author'])
+            ->add('author', AutocompleteType::class, ['class' => Author::class])
+            ->add('tags', AutocompleteMultipleType::class, ['class' => Tag::class])
         ;
     }
 
@@ -26,7 +31,7 @@ class BookType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Book',
+            'data_class' => Book::class,
         ]);
     }
 }

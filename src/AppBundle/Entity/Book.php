@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,20 @@ class Book
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;
+
+    /**
+     * @var ArrayCollection<Tag>
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag")
+     */
+    private $tags;
+
+    /**
+     * Book constructor.
+     */
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -74,5 +89,33 @@ class Book
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * @return ArrayCollection<Tag>
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return Book $this
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags->add($tag);
+        return $this;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return Book $this
+     */
+    public function removeTag(Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+        return $this;
     }
 }

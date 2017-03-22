@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "64640ba51c4bb3f6f4bcc0944c7bd139",
+    "content-hash": "71d01681a7693c5e46b7508bfb250beb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1096,62 +1096,6 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "pugx/autocompleter-bundle",
-            "version": "v1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PUGX/PUGXAutoCompleterBundle.git",
-                "reference": "6c5afdf92ac637d443fb6f0d7b4a99b212527adf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PUGX/PUGXAutoCompleterBundle/zipball/6c5afdf92ac637d443fb6f0d7b4a99b212527adf",
-                "reference": "6c5afdf92ac637d443fb6f0d7b4a99b212527adf",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "^2.5",
-                "php": ">=7.0",
-                "symfony/form": "^2.8|^3.2",
-                "symfony/framework-bundle": "^2.8|^3.2"
-            },
-            "require-dev": {
-                "lexik/form-filter-bundle": "^5.0",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "suggest": {
-                "lexik/form-filter-bundle": "To use autocomplete on a filter."
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PUGX\\AutocompleterBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Massimiliano Arione",
-                    "email": "garakkio@gmail.com"
-                }
-            ],
-            "description": "Add an autocomplete type to forms",
-            "keywords": [
-                "field",
-                "form",
-                "symfony"
-            ],
-            "time": "2017-01-10T09:18:14+00:00"
-        },
-        {
             "name": "sensio/distribution-bundle",
             "version": "v5.0.18",
             "source": {
@@ -1205,16 +1149,16 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.23",
+            "version": "v3.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "d3601fd5709168ace7a1ca6eefa2619a1632b7f7"
+                "reference": "472b339cf0c82f3a033b29f85d9d9cada3cd1a9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/d3601fd5709168ace7a1ca6eefa2619a1632b7f7",
-                "reference": "d3601fd5709168ace7a1ca6eefa2619a1632b7f7",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/472b339cf0c82f3a033b29f85d9d9cada3cd1a9c",
+                "reference": "472b339cf0c82f3a033b29f85d9d9cada3cd1a9c",
                 "shasum": ""
             },
             "require": {
@@ -1271,7 +1215,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2017-03-02T20:17:28+00:00"
+            "time": "2017-03-21T23:34:44+00:00"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -1867,6 +1811,60 @@
                 "templating"
             ],
             "time": "2017-02-27T00:16:20+00:00"
+        },
+        {
+            "name": "vctls/autocompleter-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vctls/PUGXAutoCompleterBundle.git",
+                "reference": "b23fb1d9a57191508c5611ecd8e537dbabe8e3c8"
+            },
+            "require": {
+                "doctrine/orm": "^2.5",
+                "php": ">=5.6",
+                "symfony/config": "^2.8|^3.2",
+                "symfony/dependency-injection": "^2.8|^3.2",
+                "symfony/event-dispatcher": "^2.8|^3.2",
+                "symfony/form": "^2.8|^3.2",
+                "symfony/framework-bundle": "^2.8|^3.2",
+                "symfony/http-kernel": "^2.8|^3.2",
+                "symfony/options-resolver": "^2.8|^3.2"
+            },
+            "require-dev": {
+                "lexik/form-filter-bundle": "^5.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "suggest": {
+                "lexik/form-filter-bundle": "To use autocomplete on a filter."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PUGX\\AutocompleterBundle\\": ""
+                }
+            },
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Victor Toulouse",
+                    "email": "toulouse@insa-toulouse.fr"
+                }
+            ],
+            "description": "Add an autocomplete type to forms",
+            "keywords": [
+                "Symfony",
+                "field",
+                "form"
+            ],
+            "time": "2017-02-13 13:20:10"
         }
     ],
     "packages-dev": [
@@ -2529,16 +2527,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.16",
+            "version": "5.7.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dafc78e2a7d12139b0e97078d1082326bd09363d"
+                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dafc78e2a7d12139b0e97078d1082326bd09363d",
-                "reference": "dafc78e2a7d12139b0e97078d1082326bd09363d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68752b665d3875f9a38a357e3ecb35c79f8673bf",
+                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf",
                 "shasum": ""
             },
             "require": {
@@ -2607,7 +2605,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-15T13:02:34+00:00"
+            "time": "2017-03-19T16:52:12+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3512,7 +3510,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "vctls/autocompleter-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

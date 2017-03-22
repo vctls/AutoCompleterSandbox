@@ -7,3 +7,8 @@ services:
         class: AppBundle\Repository\BookRepository
         factory: ['@doctrine', getRepository]
         arguments: ['AppBundle:Book']
+    app.repository.tag:
+        class: AppBundle\Repository\TagRepository
+        factory: ['@doctrine', getRepository]
+        arguments: ['AppBundle:Tag']
+

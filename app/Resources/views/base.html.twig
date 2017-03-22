@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title 'PUGX Autocompleter sandbox' %}</title>
-        {% block stylesheets %}
-            <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-            <link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.css" rel="stylesheet">
-			<link href="//cdn.rawgit.com/t0m/select2-bootstrap-css/bootstrap3/select2-bootstrap.css" rel="stylesheet">
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    </head>
-    <body>
-        <div class="container">
-            {% for messageType in ['success', 'info', 'warning', 'danger'] %}
-                {% for flashMessage in app.session.flashbag.get(messageType) %}
-                    <div class="alert alert-{{ messageType }}">
-                        <button class="close" data-dismiss="alert" type="button">&times;</button>
-                        {{ flashMessage|trans }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-            {% block body '' %}
-        </div>
-        <footer>
-            <div class="container">
-                <p class="text-muted text-right">
-                    <a href="https://github.com/PUGX/PUGXAutoCompleterBundle">PUGXAutoCompleterBundle</a> |
-                    by <a href="https://massimilianoarione.it">Massimiliano Arione</a>
-                </p>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title 'PUGX Autocompleter sandbox' %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/select2/dist/css/select2.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css') }}" rel="stylesheet">
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('assets/vendor/jquery/dist/jquery.js') }}"></script>
+        <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('assets/vendor/select2/dist/js/select2.js') }}"></script>
+        <script src="{{ asset('bundles/pugxautocompleter/js/autocompleter-select2.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+</head>
+<body>
+<br>
+<div class="container">
+    {% for messageType in ['success', 'info', 'warning', 'danger'] %}
+        {% for flashMessage in app.session.flashbag.get(messageType) %}
+            <div class="alert alert-{{ messageType }}">
+                <button class="close" data-dismiss="alert" type="button">&times;</button>
+                {{ flashMessage|trans }}
             </div>
-        </footer>
-        {% block javascripts %}
-            <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-            <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script>
-            <script src="{{ asset('bundles/pugxautocompleter/js/autocompleter-select2.js') }}"></script>
-            <script src="{{ asset('js/app.js') }}"></script>
-        {% endblock %}
-    </body>
+        {% endfor %}
+    {% endfor %}
+    {% block body '' %}
+</div>
+{% block footer %}
+<footer>
+    <div class="container">
+        <p class="text-center">
+            <a href="{{ path('homepage') }}">
+                <span class="glyphicon glyphicon-home"></span>
+                Home
+            </a>
+        </p>
+        <p class="text-muted text-center">
+            a fork of
+            <a href="https://github.com/PUGX/PUGXAutoCompleterBundle">PUGXAutoCompleterBundle</a>
+            by <a href="https://massimilianoarione.it">Massimiliano Arione</a>
+        </p>
+    </div>
+</footer>
+{% endblock %}
+</body>
 </html>

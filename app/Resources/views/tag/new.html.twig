@@ -1,0 +1,33 @@
+{# This template is flexible, to support "classic" form page and ajax modal form #}
+
+{% extends app.request.isXmlHttpRequest ? 'base_ajax.html.twig' : 'base.html.twig' %}
+
+{% block title %}New Tag - {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% if app.request.isXmlHttpRequest %}
+        <div id="modal-new-tag" class="modal fade">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    {% endif %}
+    <h1>New Tag</h1>
+    {% if app.request.isXmlHttpRequest %}
+    </div>
+    <div class="modal-body">
+    {% endif %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary">OK</button>
+    {{ form_end(form) }}
+    {% if app.request.isXmlHttpRequest %}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+        </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+[{% for tag in tags -%}
+    {{ {id: tag.id, text: tag.__toString}|json_encode|raw }}
+    {# use the following for jquery-ui
+    {{ {value: tag.id, label: tag.__toString}|json_encode|raw }}
+    #}
+    {%- if not loop.last %},{% endif -%}
+{%- endfor %}]

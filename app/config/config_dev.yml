@@ -29,5 +29,9 @@ bazinga_faker:
             number: 100
             custom_formatters:
                 name: { method: name }
+        AppBundle\Entity\Tag:
+            number: 30
+            custom_formatters:
+                name: { method: word }
         AppBundle\Entity\Book:
             number: 5

@@ -1,7 +1,7 @@
 PUGXAutoCompleter Sandbox
 =========================
 
-This is a demo project for [PUGXAutoCompleterBundle](https://github.com/PUGX/PUGXAutoCompleterBundle).
+This is a demo project for [PUGXAutoCompleterBundle](https://github.com/vctls/PUGXAutoCompleterBundle).
 
 It's basically a [Symfony Standard Edition](https://github.com/symfony/symfony-standard) with some small additions.
 
@@ -12,10 +12,18 @@ Setup
 
 * clone this repository
 * run `composer install`
-* run `bin/console doctrine:database:create`
 * run `bin/console doctrine:schema:update --force`
 * run `bin/console faker:populate`
 * run `bin/console server:run`
+
+If you want to install the frontend dependencies with Bower:
+* create a `.bowerrc` file with the following:
+```json
+{
+  "directory": "web/assets/vendor/"
+}
+```
+* run `bower install`
 
 After the last command, you should be able to browse the application in `http://127.0.0.1:8000`.
 

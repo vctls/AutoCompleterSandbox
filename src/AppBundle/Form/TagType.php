@@ -2,12 +2,12 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Author;
+use AppBundle\Entity\Tag;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AuthorType extends AbstractType
+class TagType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -25,7 +25,7 @@ class AuthorType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Author::class,
+            'data_class' => Tag::class,
         ]);
     }
 }

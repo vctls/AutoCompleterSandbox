@@ -1,28 +1,51 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>PUGXAutocompleterBundle sadnbox</h1>
-    <table class="table table-striped table-hover">
-        <caption>Books</caption>
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for book in books %}
-                <tr>
-                    <td>{{ book.id }}</td>
-                    <td>{{ book.title }}</td>
-                    <td>{{ book.author }}</td>
-                    <td><a href="{{ path('edit_book', {id: book.id}) }}" class="btn btn-default btn-sm">edit</a>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <hr>
-    <a class="btn btn-primary" href="{{ path('new_book') }}">Insert a new book</a>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h1>PUGXAutocompleterBundle Sandbox</h1></div>
+                <table class="table table-striped table-hover">
+                    <caption>Books</caption>
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Tags</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ book.id }}</td>
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.tags|join(', ') }}</td>
+                            {#<td>#}
+                                {#{% for tag in book.tags %}#}
+                                    {#{{ tag.name }}#}
+                                {#{% endfor %}#}
+                            {#</td>#}
+                            <td>
+                                <a href="{{ path('edit_book', {id: book.id}) }}"
+                                   class="btn btn-default btn-sm">
+                                    edit
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <a class="btn btn-primary" href="{{ path('new_book') }}">
+                        Insert a new book (Select2)
+                    </a>
+                    <a class="btn btn-primary" href="{{ path('new_book', {jqui: "true"}) }}">
+                        Insert a new book (jQuery-UI)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Author;
-use AppBundle\Form\AuthorType;
+use AppBundle\Entity\Tag;
+use AppBundle\Form\TagType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -12,12 +12,12 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AuthorController extends Controller
+class TagController extends Controller
 {
     /**
-     * @Route("/search-author", name="search_author", defaults={"_format"="json"})
+     * @Route("/search-tag", name="search_tag", defaults={"_format"="json"})
      * @Method("GET")
-     * @Template("author/search.json.twig")
+     * @Template("tag/search.json.twig")
      *
      * @param Request $request
      *
@@ -26,13 +26,13 @@ class AuthorController extends Controller
     public function searchAction(Request $request)
     {
         $qs = $request->query->get('q', $request->query->get('term', ''));
-        $authors = $this->get('app.repository.author')->findLike($qs);
+        $tags = $this->get('app.repository.tag')->findLike($qs);
 
-        return ['authors' => $authors];
+        return ['tags' => $tags];
     }
 
     /**
-     * @Route("/get-author/{id}", name="get_author", defaults={"_format"="json"})
+     * @Route("/get-tag/{id}", name="get_tag", defaults={"_format"="json"})
      * @Method("GET")
      *
      * @param null $id
@@ -41,19 +41,19 @@ class AuthorController extends Controller
      */
     public function getAction($id = null)
     {
-        if (is_null($author = $this->get('app.repository.author')->find($id))) {
+        if (is_null($tag = $this->get('app.repository.tag')->find($id))) {
             throw $this->createNotFoundException();
         }
 
-        return $this->json($author->getName());
+        return $this->json($tag->getName());
     }
 
     /**
-     * You can use this action to add new author, both in "classic" mode and in an ajax modal.
+     * You can use this action to add new tag, both in "classic" mode and in an ajax modal.
      *
-     * @Route("/new-author", name="new_author")
+     * @Route("/new-tag", name="new_tag")
      * @Method({"GET", "PUT"})
-     * @Template("author/new.html.twig")
+     * @Template("tag/new.html.twig")
      *
      * @param Request $request
      *
@@ -61,22 +61,22 @@ class AuthorController extends Controller
      */
     public function newAction(Request $request)
     {
-        $author = new Author();
-        $form = $this->createForm(AuthorType::class, $author, [
+        $tag = new Tag();
+        $form = $this->createForm(TagType::class, $tag, [
             'method' => 'PUT',
             // notice that we need to explicit 'action', otherwise modal form will not work
-            'action' => $this->generateUrl('new_author'),
+            'action' => $this->generateUrl('new_tag'),
         ]);
         if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
-            $this->get('app.repository.author')->add($author);
+            $this->get('app.repository.tag')->add($tag);
             if ($request->isXmlHttpRequest()) {
                 return $this->json([
-                    'id' => $author->getId(),
-                    'name' => $author->getName(),
-                    'type' => 'author'
+                    'id' => $tag->getId(),
+                    'name' => $tag->getName(),
+                    'type' => 'tag'
                 ]);
             } else {
-                $this->addFlash('success', 'New author added.');
+                $this->addFlash('success', 'New tag added.');
 
                 return $this->redirectToRoute('homepage');
             }
