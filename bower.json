@@ -22,6 +22,7 @@
   "dependencies": {
     "select2": "^4.0.3",
     "jquery-ui": "^1.12.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "select2-bootstrap-theme": "^0.1.0-beta.9"
   }
 }

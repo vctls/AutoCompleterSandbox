@@ -4,14 +4,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PUGX\AutocompleterBundle\Form\Transformer\TransformableInterface as Transformable;
 
 /**
  * Class Tag
  * @package AppBundle\Entity
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
  */
-class Tag
+class Tag implements Transformable
 {
     /**
      * @var integer
@@ -30,7 +31,7 @@ class Tag
     /**
      * @return int
      */
-    public function getId()
+    public function getId() :int
     {
         return $this->id;
     }
@@ -56,7 +57,7 @@ class Tag
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() :string
     {
         return $this->name;
     }

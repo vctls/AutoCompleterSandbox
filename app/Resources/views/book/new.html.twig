@@ -1,4 +1,5 @@
 {% extends app.request.get('jqui') ? 'base_jqui.html.twig' : 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block title %}New Book - {{ parent() }}{% endblock %}
 

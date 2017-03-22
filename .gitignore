@@ -12,4 +12,9 @@
 .idea/
 /app/auto-completer-sandbox.db.cache
 /.bowerrc
-/web/assets/vendor
+web/assets/
+cache/
+logs/
+!logs/.gitkeep
+sessions/
+!sessions/.gitkeep

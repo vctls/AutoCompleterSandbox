@@ -54,15 +54,29 @@ $(document).ready(function () {
             url_list: $('#url-list').attr('href'),
             url_get: $('#url-get').attr('href'),
             otherOptions: {
+                theme: "bootstrap",
                 minimumInputLength: 1,
-                theme: 'bootstrap',
                 formatNoMatches: 'No author found.',
                 formatSearching: 'Searching authors...',
-                formatInputTooShort: 'Insert at least 1 character'
+                formatInputTooShort: 'Insert at least 1 character.'
             }
         };
 
         $('#book_author').autocompleter(options);
+
+        var tags = $('#book_tags');
+
+        tags.autocompleter({
+            url_list: $('#url-list-tag').attr('href'),
+            url_get: $('#url-get-tag').attr('href'),
+            otherOptions: {
+                theme: "bootstrap",
+                minimumInputLength: 1,
+                formatNoMatches: 'No tags found.',
+                formatSearching: 'Searching tags...',
+                formatInputTooShort: 'Insert at least 1 character.'
+            }
+        });
 
         // following lines are only for "add new" feature. See README.
         modalForm('book');
